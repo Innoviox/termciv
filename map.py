@@ -5,24 +5,14 @@ from typing import List
 
 resources = {'diamond': '💎'}
 
-colors = {
-    'F': '1;32;40',
-    'G': '1;36;43',
-    'I': '1;31;40',
-    'S': '1;34;44',
-    'H': '1;35;44',
-    '0': '0'
-}
-color = lambda i: '\033[' + colors[i] + 'm'
-
 @dataclass
 class Tile:
-    food: int
-    gold: int
-    industry: int
-    science: int
-    happiness: int
-    resource: str
+    f: int # food
+    g: int # gold
+    i: int # industry
+    s: int # science
+    h: int # happiness
+    r: str # resource
 
     @classmethod
     def generate(cls):
@@ -31,24 +21,10 @@ class Tile:
         if random.random() > 0.99:
             r = resources['diamond']
         else:
-            r = ' '
+            r = 'N'
 
 
         return cls(f, g, i, s, h, r)
-
-    def __str__(self):
-        '''
-            H
-        F       I
-            R
-        G       S
-        '''
-        s = ""
-        s += f"   {color('H')}{self.happiness}{color('0')}   "
-        s += f"{color('F')}{self.food}{color('0')}       {color('I')}{self.industry}{color('0')}"
-        s += f"   {self.resource}   "
-        s += f"{color('F')}{self.food}{color('0')}       {color('I')}{self.industry}{color('0')}"
-        return s
 
 
 class Map:
