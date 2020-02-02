@@ -21,7 +21,7 @@ class Tile:
         if random.random() > 0.99:
             r = resources['diamond']
         else:
-            r = 'N'
+            r = ' '
 
 
         return cls(f, g, i, s, h, r)
