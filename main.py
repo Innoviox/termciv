@@ -8,7 +8,9 @@ class Game:
         self.map = Map(5)
 
         while True:
-            self.display(self.map.at(0, 0), 0, 0)
+            for i in range(5):
+                for j in range(5):
+                    self.display(self.map.at(i, j), i * 11, j * 6)
             # screen.get_key()
             screen.refresh()
 
