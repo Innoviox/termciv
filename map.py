@@ -10,7 +10,8 @@ terrain = {
     'forest': (3, 0, 2, 1, 1),
     'ocean': (1, 0, 0, 0, 0),
     'plains': (1, 1, 1, 1, 1),
-    'mountain': (0.5, 2, 1, 3, 0.5)
+    'mountain': (0.5, 2, 1, 3, 0.5),
+    'city': (5, 5, 5, 5, 5)
 }
 
 @dataclass
@@ -39,9 +40,31 @@ class Tile:
 
 
 class Map:
-    def __init__(self):
-        size = 5
-        self.map = [[Tile.generate() for _ in range(size)] for _ in range(size)]
+    def __init__(self, width, height):
+        continents = 5 # random.randint(2, 4)
+        per = width // continents
+
+        self.map = [[Tile.generate('ocean') for _ in range(width)] for _ in range(height)]
+
+        for continent in range(1, continents + 1):
+            # generate continent focus
+            fx, fy = (random.randint((continent - 1) * per, continent * per), random.randint(0, height))
+            self.map[fy][fx] = Tile.generate('city')
+            # expand continent focus
+            for exp in range(random.randint(50, 100)):
+                fx += random.choice([-1, 0, 1])
+                fy += random.choice([-1, 0, 1])
+                if fx >= width:
+                    fx %= width
+                if fy >= height:
+                    fy %= height
+                try:
+                    self.map[fy][fx] = Tile.generate('desert')
+                except IndexError:
+                    pass
+
+
+
 
     def at(self, x, y):
         return self.map[x][y]

@@ -1,5 +1,13 @@
 [[package]]
 category = "main"
+description = "Python command-line parsing library"
+name = "argparse"
+optional = false
+python-versions = "*"
+version = "1.2.1"
+
+[[package]]
+category = "main"
 description = "A cross-platform package to replace curses (mouse/keyboard input & text colours/positioning) and create ASCII animations"
 name = "asciimatics"
 optional = false
@@ -23,11 +31,38 @@ version = "0.18.2"
 
 [[package]]
 category = "main"
+description = "Perlin noise for Python"
+name = "noise"
+optional = false
+python-versions = "*"
+version = "1.2.2"
+
+[[package]]
+category = "main"
+description = "NumPy: array processing for numbers, strings, records, and objects."
+name = "numpy"
+optional = false
+python-versions = "*"
+version = "1.10.0"
+
+[[package]]
+category = "main"
 description = "Python Imaging Library (Fork)"
 name = "pillow"
 optional = false
 python-versions = ">=3.5"
 version = "7.0.0"
+
+[[package]]
+category = "main"
+description = "Protocol Buffers"
+name = "protobuf"
+optional = false
+python-versions = "*"
+version = "3.0.0a3"
+
+[package.dependencies]
+setuptools = "*"
 
 [[package]]
 category = "main"
@@ -51,6 +86,22 @@ pywin32 = ">=223"
 
 [[package]]
 category = "main"
+description = "Plates simulation library"
+name = "pyplatec"
+optional = false
+python-versions = "*"
+version = "1.4.0"
+
+[[package]]
+category = "main"
+description = "Pure Python PNG image encoder/decoder"
+name = "pypng"
+optional = false
+python-versions = "*"
+version = "0.0.20"
+
+[[package]]
+category = "main"
 description = "Python for Window Extensions"
 marker = "sys_platform == \"win32\""
 name = "pywin32"
@@ -66,17 +117,63 @@ optional = false
 python-versions = "*"
 version = "0.1.8"
 
+[[package]]
+category = "main"
+description = "World generator simulating plate tectonics, erosion, etc."
+name = "worldengine"
+optional = false
+python-versions = "*"
+version = "0.19.0"
+
+[package.dependencies]
+PyPlatec = "1.4.0"
+argparse = "1.2.1"
+noise = "1.2.2"
+numpy = ">=1.9.2,<=1.10.0.post2"
+protobuf = "3.0.0a3"
+pypng = ">=0.0.18"
+
 [metadata]
-content-hash = "abbfd2bd0d0c5e3327dab214f43b2e7464f357d405cc4e2d1c5aba9af9608ba0"
+content-hash = "fd35588dcd57aca093c30e2838086e8aba7c43870e9f412f040e48fe19ef2ae9"
 python-versions = "^3.8"
 
 [metadata.files]
+argparse = [
+    {file = "argparse-1.2.1.tar.gz", hash = "sha256:ddaf4b0a618335a32b6664d4ae038a1de8fbada3b25033f9021510ed2b3941a4"},
+]
 asciimatics = [
     {file = "asciimatics-1.11.0-py2.py3-none-any.whl", hash = "sha256:6c7ad130a0663ecb1b3a731b82c51d6662f1d2c4760de2b8ffc9c1faba775360"},
     {file = "asciimatics-1.11.0.tar.gz", hash = "sha256:1d0871133c95fa15c603d471ebb77e39b3389877e2ff2ad5ab3bc906d81b5e8c"},
 ]
 future = [
     {file = "future-0.18.2.tar.gz", hash = "sha256:b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"},
+]
+noise = [
+    {file = "noise-1.2.2-cp27-none-win32.whl", hash = "sha256:f7ef26a4c334224e7763e740fc945c26c0abf9ba51a19d4f5befa1d20d7da0b7"},
+    {file = "noise-1.2.2-cp27-none-win_amd64.whl", hash = "sha256:15582a58c9ee79b07436a1220bd6c4145266865262d1e6478d37a08b7d910da8"},
+    {file = "noise-1.2.2-cp33-none-win32.whl", hash = "sha256:93ac2977cf0e8f5cb90a2e828a5dfefc438bfb1fb8d7fd1ee305f05eadc8578e"},
+    {file = "noise-1.2.2-cp33-none-win_amd64.whl", hash = "sha256:20d1c89a2b8c3714abe5a5fa653b3ab9ab01aee1475993b8bdb9d5e26bc081cc"},
+    {file = "noise-1.2.2-cp34-none-win32.whl", hash = "sha256:f82933563ef89651865cc7cbfab11721a2229f5c6c8c009a041be4fb887949f2"},
+    {file = "noise-1.2.2-cp34-none-win_amd64.whl", hash = "sha256:065be3531a6b7a7dfcb6840646400a75e081511c524caa04feaea11e16e7ab24"},
+    {file = "noise-1.2.2-py2.7-win-amd64.egg", hash = "sha256:fae41762d6b7a0a1e360ec4cb03260b6abcc302b2244a3feefdfbf52ffd612c9"},
+    {file = "noise-1.2.2-py2.7-win32.egg", hash = "sha256:0d3c51b538dfbbea85cbcf9fc4418ae5210136f5e39948968392a6d4f3cd39b0"},
+    {file = "noise-1.2.2-py3.3-win-amd64.egg", hash = "sha256:0191e19e77be1018f5548e75125de1c6aec11a75a8693bb5f8f8106b63561ed8"},
+    {file = "noise-1.2.2-py3.3-win32.egg", hash = "sha256:a15336cea59c74f1b3b2bf03b76600a3d59b0e557da1219176b9ca216dca8a91"},
+    {file = "noise-1.2.2-py3.4-win-amd64.egg", hash = "sha256:a476b2b62efa56b777c5a04566930aa47cfda43eda0e744a39b55056e763064f"},
+    {file = "noise-1.2.2-py3.4-win32.egg", hash = "sha256:001782e0b67c260e734e48a409641707f502ee4cd186a74e6bda881fb3c44427"},
+    {file = "noise-1.2.2.tar.gz", hash = "sha256:57a2797436574391ff63a111e852e53a4164ecd81ad23639641743cd1a209b65"},
+    {file = "noise-1.2.2.zip", hash = "sha256:36036cdaca131ddd2ab4397fba649af7f074ec08031e1e0a51031d0ae23b509a"},
+]
+numpy = [
+    {file = "numpy-1.10.0-cp26-cp26m-manylinux1_x86_64.whl", hash = "sha256:9f917e14e14d9a3123eb651af572fbe1fe7f8da4854ee9b22940587bb527cb23"},
+    {file = "numpy-1.10.0-cp26-cp26mu-manylinux1_x86_64.whl", hash = "sha256:189f72f4ff774382187a82dedcae58050fa110c1bb060a98588a649859cf22df"},
+    {file = "numpy-1.10.0-cp27-cp27m-manylinux1_x86_64.whl", hash = "sha256:05952e952ed88fb6945d4b741f7472e66be31d0568b97865a051634e7fd01c5d"},
+    {file = "numpy-1.10.0-cp27-cp27mu-manylinux1_x86_64.whl", hash = "sha256:97a215a6cc010247a0df4d55e874d79d27fe234981ac1005c45cccdb48e9731d"},
+    {file = "numpy-1.10.0-cp33-cp33m-manylinux1_x86_64.whl", hash = "sha256:124881e12015ff7dcd64640f22944ec04a2a1b27c7c77028a1239c195b2a7b14"},
+    {file = "numpy-1.10.0-cp34-cp34m-manylinux1_x86_64.whl", hash = "sha256:d924d836466e83221c0812015828a36bfd93c24bb58b3c11e61352458dd581e6"},
+    {file = "numpy-1.10.0-cp35-cp35m-manylinux1_x86_64.whl", hash = "sha256:c51659d34965cb62ca98080f49355063fbd0004064c16c671fb8ed088ab12692"},
+    {file = "numpy-1.10.0.post2.tar.gz", hash = "sha256:2ebd29edb2f1a4a19e86cfc27c1b2283314d57509b2bfc6606b4f05d620c230b"},
+    {file = "numpy-1.10.0.post2.zip", hash = "sha256:35bc2e3ea058f998c3a54d869a4c8adead8b6c9a26ceb8ee5da28773ae32cb05"},
 ]
 pillow = [
     {file = "Pillow-7.0.0-cp35-cp35m-macosx_10_6_intel.whl", hash = "sha256:5f3546ceb08089cedb9e8ff7e3f6a7042bb5b37c2a95d392fb027c3e53a2da00"},
@@ -102,6 +199,10 @@ pillow = [
     {file = "Pillow-7.0.0-pp373-pypy36_pp73-win32.whl", hash = "sha256:8453f914f4e5a3d828281a6628cf517832abfa13ff50679a4848926dac7c0358"},
     {file = "Pillow-7.0.0.tar.gz", hash = "sha256:4d9ed9a64095e031435af120d3c910148067087541131e82b3e8db302f4c8946"},
 ]
+protobuf = [
+    {file = "protobuf-3.0.0a3-py2.7.egg", hash = "sha256:f150bbf0df697f23c32651fba233e823da04f1c292c813e8e4a56f3fdad0ef0e"},
+    {file = "protobuf-3.0.0a3.tar.gz", hash = "sha256:b61622de5048415bfd3f2d812ad64606438ac9e25009ae84191405fe58e522c1"},
+]
 pyfiglet = [
     {file = "pyfiglet-0.8.post1-py2.py3-none-any.whl", hash = "sha256:d555bcea17fbeaf70eaefa48bb119352487e629c9b56f30f383e2c62dd67a01c"},
     {file = "pyfiglet-0.8.post1.tar.gz", hash = "sha256:c6c2321755d09267b438ec7b936825a4910fec696292139e664ca8670e103639"},
@@ -109,6 +210,18 @@ pyfiglet = [
 pypiwin32 = [
     {file = "pypiwin32-223-py3-none-any.whl", hash = "sha256:67adf399debc1d5d14dffc1ab5acacb800da569754fafdc576b2a039485aa775"},
     {file = "pypiwin32-223.tar.gz", hash = "sha256:71be40c1fbd28594214ecaecb58e7aa8b708eabfa0125c8a109ebd51edbd776a"},
+]
+pyplatec = [
+    {file = "PyPlatec-1.4.0-cp27-none-win32.whl", hash = "sha256:39f7c30fe873ccd97ade5f5ccca679850c11eb8fa1a1fcba7a83dbd9df17fc86"},
+    {file = "PyPlatec-1.4.0-cp27-none-win_amd64.whl", hash = "sha256:5741158942e04a6c43c9591290f0f922241ab1e9d3969879253f52ac9e2432b9"},
+    {file = "PyPlatec-1.4.0-cp33-none-win32.whl", hash = "sha256:5e06ab2287f576e1b992aea9b021533d6e6e07724d1243b97dcea7bde9bc710d"},
+    {file = "PyPlatec-1.4.0-cp33-none-win_amd64.whl", hash = "sha256:7dd7651177679528f1dbe07482be2055d1f04331d2bc6a57c286a8e18060067b"},
+    {file = "PyPlatec-1.4.0-cp34-none-win32.whl", hash = "sha256:2fb8ec7e99d14b10c0ef4f89380845bbc563ba233b7faea6dc1913acabe2be65"},
+    {file = "PyPlatec-1.4.0-cp34-none-win_amd64.whl", hash = "sha256:b460c6e3ccf961f6ead372e435d34395642df8c5e89498c282e0b6a1b46a0f63"},
+    {file = "PyPlatec-1.4.0.tar.gz", hash = "sha256:4f0af0bf3f4c60f55c996615745722a7c84b424347e3cad88d346746dd181d4f"},
+]
+pypng = [
+    {file = "pypng-0.0.20.tar.gz", hash = "sha256:1032833440c91bafee38a42c38c02d00431b24c42927feb3e63b104d8550170b"},
 ]
 pywin32 = [
     {file = "pywin32-227-cp27-cp27m-win32.whl", hash = "sha256:371fcc39416d736401f0274dd64c2302728c9e034808e37381b5e1b22be4a6b0"},
@@ -127,4 +240,8 @@ pywin32 = [
 wcwidth = [
     {file = "wcwidth-0.1.8-py2.py3-none-any.whl", hash = "sha256:8fd29383f539be45b20bd4df0dc29c20ba48654a41e661925e612311e9f3c603"},
     {file = "wcwidth-0.1.8.tar.gz", hash = "sha256:f28b3e8a6483e5d49e7f8949ac1a78314e740333ae305b4ba5defd3e74fb37a8"},
+]
+worldengine = [
+    {file = "worldengine-0.19.0-py2.py3-none-any.whl", hash = "sha256:4f2a0aeb9436463abd412fcbdcfe927837716ad7db81e7b15ded3e0027b8b183"},
+    {file = "worldengine-0.19.0.tar.gz", hash = "sha256:26824f5e0bdff1800e060af21983131e39ba82f3e024258820ac45523fb8d772"},
 ]

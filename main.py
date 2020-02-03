@@ -1,24 +1,29 @@
 from asciimatics.screen import Screen
 from civ import Civilization
 from map import Map
+from loguru import logger
+
+logger.add("testing.log")
 
 terrain_colors = {
     'desert': 226,
     'forest': 22,
     'ocean': 19,
     'plains': 118,
-    'mountain': 255
+    'mountain': 255,
+    'city': 196
 }
 
 class Game:
     def __init__(self, screen):
         self.screen = screen
-        self.map = Map(5)
+        self.map = Map(screen.width, screen.height)
 
+        # logger.debug(f"{screen.height}, {screen.width}")
         while True:
-            for i in range(5):
-                for j in range(5):
-                    self.display(self.map.at(i, j), i * 11, j * 6)
+            for i in range(screen.height):
+                for j in range(screen.width):
+                    self.display(self.map.at(i, j), j, i)
             # screen.get_key()
             screen.refresh()
 
