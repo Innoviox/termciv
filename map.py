@@ -41,17 +41,18 @@ class Tile:
 
 class Map:
     def __init__(self, width, height):
-        continents = 5 # random.randint(2, 4)
+        continents = 2 # random.randint(2, 4)
         per = width // continents
 
         self.map = [[Tile.generate('ocean') for _ in range(width)] for _ in range(height)]
 
         for continent in range(1, continents + 1):
+            cont = []
             # generate continent focus
-            fx, fy = (random.randint((continent - 1) * per, continent * per), random.randint(0, height))
+            fx, fy = (random.randint((continent - 1) * per, continent * per), random.randint(height // 4, 3 * height // 4))
             self.map[fy][fx] = Tile.generate('city')
             # expand continent focus
-            for exp in range(random.randint(50, 100)):
+            for exp in range(random.randint(500, 1000)):
                 fx += random.choice([-1, 0, 1])
                 fy += random.choice([-1, 0, 1])
                 if fx >= width:
@@ -60,11 +61,24 @@ class Map:
                     fy %= height
                 try:
                     self.map[fy][fx] = Tile.generate('desert')
+                    cont.append((fx, fy))
                 except IndexError:
                     pass
+            #smooth continent
+            cix, ciy = min(i[0] for i in cont), min(i[1] for i in cont)
+            cax, cay = max(i[0] for i in cont), max(i[1] for i in cont)
 
-
-
+            for x in range(cix, cax):
+                for y in range(ciy, cay):
+                    if self.map[y][x].t == 'ocean':
+                        n = 0
+                        for a in [-1, 0, 1]:
+                            for b in [-1, 0, 1]:
+                                if self.map[y+a][x+b].t == 'desert':
+                                    n += 1
+                        if n > 4:
+                            # pass
+                            self.map[y][x] = Tile.generate('desert')
 
     def at(self, x, y):
         return self.map[x][y]
